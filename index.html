@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ana | Social Media & Designer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<script>
+  const profileLink = document.getElementById('profile-link');
+  const profilePic = profileLink.querySelector('.profile-pic');
+
+  profileLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    profilePic.classList.add('spin3d');
+
+    setTimeout(() => {
+      window.open(profileLink.href, '_blank');
+      profilePic.classList.remove('spin3d');
+    }, 800);
+  });
+</script>
+
+<body>
+  <!-- Intro estilo Netflix -->
+<div id="intro">
+  <img src="logo.PNG" alt="Logo Ana" id="intro-logo">
+</div>
+<body>
+  <div class="container">
+    <header>
+      <img src="ana.png" alt="Foto de Perfil" class="profile-pic" />
+      <h1>Ana | Social Media & Designer</h1>
+      <p>Identidade visual, estratégia, consultoria, gestão e criação de conteúdos</p>
+      <a href="https://api.whatsapp.com/send/?phone=5527998638625&text=Ol%C3%A1+Ana%2C+estou+vindo+atrav%C3%A9s+do+Instagram.&type=phone_number&app_absent=0" target="_blank" class="whatsapp-btn">Contato Whatsapp</a>
+    </header>
+
+    <h2 class="section-title">Informações e Orçamentos:</h2>
+
+    <div class="carousel-wrapper">
+      <button class="nav left" id="btnLeft">&#10094;</button>
+      <div class="story-carousel" id="carousel"></div>
+      <button class="nav right" id="btnRight">&#10095;</button>
+    </div>
+    
+    <!-- Paginação: bolinhas indicando página -->
+    <div class="pagination" id="pagination"></div>
+  </div>
+        <div style="text-align: center; margin-top: 30px;">
+  <a href="https://www.instagram.com/midias.ana/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block;">
+    <img src="ig3.png" alt="Instagram" style="width: 44px; height: 44px; margin-bottom: 10px;">
+  </a>
+</div>
+  </div>
+
+  <footer style="text-align:center; margin-top:30px; padding:15px; color:#fff; background-color:#123; font-size:14px; border-top: 1px solid #444;">
+    Desenvolvido por <strong>a_c4os</strong> © 2025
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
