@@ -1,4 +1,5 @@
-/* INTRO ANIMAÇÃO */
+/* style.css */
+
 #intro {
   position: fixed;
   z-index: 9999;
@@ -33,7 +34,6 @@
   }
 }
 
-/* BASE */
 html, body {
   height: 100%;
   margin: 0;
@@ -42,16 +42,17 @@ html, body {
   background-attachment: fixed;
   background-size: cover;
   box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
 }
 
+/* Layout */
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -95,23 +96,26 @@ p {
   margin-bottom: 10px;
 }
 
-/* CARROSSEL */
-.story-carousel-wrapper {
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
-  overflow: hidden;
+/* Carousel */
+.carousel-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 760px;
+  overflow: hidden;
 }
 
 .story-carousel {
   display: flex;
   gap: 16px;
   scroll-behavior: smooth;
-  overflow-x: auto;
+  overflow-x: scroll;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
 .story-carousel::-webkit-scrollbar {
@@ -132,12 +136,11 @@ p {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-width: 220px;
 }
 
 .card img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
   margin-bottom: 12px;
   pointer-events: none;
@@ -153,7 +156,7 @@ p {
   color: #bbb;
 }
 
-/* SETAS */
+/* Navegação */
 .nav {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -180,14 +183,14 @@ p {
 }
 
 .nav.left {
-  left: -10px;
+  left: 0;
 }
 
 .nav.right {
-  right: -10px;
+  right: 0;
 }
 
-/* PAGINAÇÃO */
+/* Paginação */
 .pagination {
   display: flex;
   justify-content: center;
@@ -208,11 +211,43 @@ p {
   background: #fff;
 }
 
-/* RESPONSIVO */
-@media (max-width: 768px) {
+/* ----------------------------- */
+/* Responsivo - Celulares abaixo de 600px */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
   .card {
-    flex: 0 0 80%;
-    min-width: 80%;
+    flex: 0 0 90%;
+    padding: 0.8em;
+  }
+
+  .card img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .card h3 {
+    font-size: 0.9rem;
+  }
+
+  .card p {
+    font-size: 0.75rem;
+  }
+
+  .nav {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
   }
 
   .nav.left {
@@ -223,37 +258,9 @@ p {
     right: 5px;
   }
 
-  .container {
-    padding: 10px;
-  }
-
-  h1 {
-    font-size: 1.2rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  .whatsapp-btn {
-    font-size: 0.95rem;
-    padding: 10px 18px;
-  }
-
-  .card h3 {
-    font-size: 1rem;
-  }
-
-  .card p {
-    font-size: 0.8rem;
-  }
-
-  .story-carousel {
-    gap: 12px;
-  }
-
-  .pagination {
-    margin-bottom: 20px;
+  .pagination-dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
   }
 }
