@@ -60,6 +60,68 @@ body {
   text-align: center;
 }
 
+.carousel-wrapper {
+  max-width: calc(240px * 3 + 16px * 2 + 80px); /* 3 cards + gaps + espaço para setas */
+  margin: 0 auto;
+  position: relative;
+  overflow: visible; /* para não cortar as setas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-carousel {
+  display: flex;
+  gap: 16px;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  max-width: 100%;
+  padding: 0 40px; /* espaço para as setas e evitar corte */
+}
+
+.story-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 240px;
+  background: #144332;
+  color: #ccc;
+  border-radius: 12px;
+  padding: 1em;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  pointer-events: none;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 0.85rem;
+  color: #bbb;
+}
+
 .profile-pic {
   width: 100px;
   height: 100px;
@@ -94,66 +156,6 @@ p {
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 10px;
-}
-
-/* Carousel */
-.carousel-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 760px;
-  overflow: hidden;
-}
-
-.story-carousel {
-  display: flex;
-  gap: 16px;
-  scroll-behavior: smooth;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none; /* IE and Edge */
-}
-
-.story-carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.card {
-  flex: 0 0 calc((100% / 3) - 10.6px);
-  background: #144332;
-  color: #ccc;
-  border-radius: 12px;
-  padding: 1em;
-  scroll-snap-align: start;
-  box-sizing: border-box;
-  user-select: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.card img {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  margin-bottom: 12px;
-  pointer-events: none;
-}
-
-.card h3 {
-  font-size: 1rem;
-  margin-bottom: 6px;
-}
-
-.card p {
-  font-size: 0.85rem;
-  color: #bbb;
 }
 
 /* Navegação */
@@ -226,9 +228,11 @@ p {
     font-size: 0.8rem;
   }
 
+  /* Card ocupa toda largura do container e sem margem direita */
   .card {
-    flex: 0 0 90%;
-    padding: 0.8em;
+    flex: 0 0 100%;
+    padding: 1em;
+    margin-right: 0;
   }
 
   .card img {
