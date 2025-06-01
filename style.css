@@ -1,53 +1,8 @@
 /* style.css */
-
-#intro {
-  position: fixed;
-  z-index: 9999;
-  background: black;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: fadeOut 2s ease-out 2.5s forwards;
-}
-
-#intro-logo {
-  width: 150px;
-  opacity: 0;
-  animation: logoFadeIn 1.5s ease-in forwards;
-}
-
-@keyframes logoFadeIn {
-  to {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-}
-
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-html, body {
-  height: 100%;
-  margin: 0;
-  background: linear-gradient(to bottom, #0f3122, #26684e);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  box-sizing: border-box;
-}
-
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #0f3d2e, #1b503c);
   color: #fff;
 }
 
@@ -100,11 +55,11 @@ p {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  max-width: 1000px;
 }
 
 .story-carousel-wrapper {
   width: 100%;
-  max-width: 760px; /* Ajustado para 3 cards + gap */
   margin: 0 auto;
   overflow: hidden;
   position: relative;
@@ -125,7 +80,7 @@ p {
 }
 
 .card {
-  flex: 0 0 calc((100% / 3) - 10.6px); /* 3 cards por vez, com ajuste para gap */
+  flex: 0 0 calc((100% / 3) - 12px); /* 3 cards por vez */
   background: #144332;
   color: #ccc;
   border-radius: 12px;
@@ -190,22 +145,97 @@ p {
 .nav.right {
   right: 0;
 }
+
+/* Paginação - bolinhas */
+
 .pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 12px;
-  gap: 8px;
+  margin-top: 15px;
+  text-align: center;
 }
 
-.pagination-dot {
-  width: 10px;
-  height: 10px;
+.pagination button {
+  background: #444;
+  border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+  width: 14px;
+  height: 14px;
+  margin: 0 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  outline: none;
 }
 
-.pagination-dot.active {
-  background: #fff;
+.pagination button.active {
+  background: #0f3d2e; /* verde forte */
+}
+
+/* RESPONSIVIDADE - telas pequenas (smartphones) */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+
+  .whatsapp-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  .carousel-wrapper {
+    max-width: 100%;
+  }
+
+  .story-carousel {
+    gap: 10px;
+  }
+
+  .card {
+    flex: 0 0 calc((100% / 1) - 10px); /* 1 card por vez no celular */
+    padding: 0.8em;
+  }
+
+  .card img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .card h3 {
+    font-size: 0.9rem;
+  }
+
+  .card p {
+    font-size: 0.75rem;
+  }
+
+  .nav {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+
+  .nav.left {
+    left: 5px;
+  }
+
+  .nav.right {
+    right: 5px;
+  }
+
+  /* Paginação - bolinhas menores e mais próximas */
+  .pagination {
+    margin-top: 10px;
+  }
+
+  .pagination button {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+  }
 }
