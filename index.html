@@ -8,7 +8,7 @@
   <meta name="referrer" content="no-referrer" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://via.placeholder.com; script-src 'self' https://kit.fontawesome.com; style-src 'self' 'unsafe-inline';">
 
-  <!-- Open Graph (para WhatsApp, Facebook, etc) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Ana | Social Media & Designer">
   <meta property="og:description" content="Identidade visual, consultoria, gestão e conteúdos criativos para seu negócio.">
   <meta property="og:image" content="https://raw.githubusercontent.com/ac4os/midiasana/main/icon1.png">
@@ -26,30 +26,18 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<script>
-  const profileLink = document.getElementById('profile-link');
-  const profilePic = profileLink.querySelector('.profile-pic');
-
-  profileLink.addEventListener('click', function(e) {
-    e.preventDefault();
-    profilePic.classList.add('spin3d');
-
-    setTimeout(() => {
-      window.open(profileLink.href, '_blank');
-      profilePic.classList.remove('spin3d');
-    }, 800);
-  });
-</script>
 
 <body>
   <!-- Intro estilo Netflix -->
-<div id="intro">
-  <img src="logo.png" alt="Logo Ana" id="intro-logo">
-</div>
-<body>
+  <div id="intro">
+    <img src="logo.PNG" alt="Logo Ana" id="intro-logo">
+  </div>
+
   <div class="container">
     <header>
-      <img src="ana.png" alt="Foto de Perfil" class="profile-pic" />
+      <a href="https://www.instagram.com/midias.ana/" target="_blank" id="profile-link">
+        <img src="ana.png" alt="Foto de Perfil" class="profile-pic" />
+      </a>
       <h1>Ana | Social Media & Designer</h1>
       <p>Identidade visual, estratégia, consultoria, gestão e criação de conteúdos</p>
       <a href="https://api.whatsapp.com/send/?phone=5527998638625&text=Ol%C3%A1+Ana%2C+estou+vindo+atrav%C3%A9s+do+Instagram.&type=phone_number&app_absent=0" target="_blank" class="whatsapp-btn">Contato Whatsapp</a>
@@ -63,19 +51,34 @@
       <button class="nav right" id="btnRight">&#10095;</button>
     </div>
     
-    <!-- Paginação: bolinhas indicando página -->
     <div class="pagination" id="pagination"></div>
   </div>
-        <div style="text-align: center; margin-top: 30px;">
-  <a href="https://www.instagram.com/midias.ana/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block;">
-    <img src="ig3.png" alt="Instagram" style="width: 44px; height: 44px; margin-bottom: 10px;">
-  </a>
-</div>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <a href="https://www.instagram.com/midias.ana/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block;">
+      <img src="ig3.png" alt="Instagram" style="width: 44px; height: 44px; margin-bottom: 10px;">
+    </a>
   </div>
 
   <footer style="text-align:center; margin-top:30px; padding:15px; color:#fff; background-color:#123; font-size:14px; border-top: 1px solid #444;">
     Desenvolvido por <strong>a_c4os</strong> © 2025
   </footer>
+
+  <script>
+    const profileLink = document.getElementById('profile-link');
+    const profilePic = profileLink.querySelector('.profile-pic');
+
+    profileLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      profilePic.classList.add('spin3d');
+
+      setTimeout(() => {
+        window.open(profileLink.href, '_blank');
+        profilePic.classList.remove('spin3d');
+      }, 800);
+    });
+  </script>
+  
   <script src="script.js"></script>
 </body>
 </html>
