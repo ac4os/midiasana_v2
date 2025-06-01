@@ -1,5 +1,4 @@
-/* style.css */
-
+/* INTRO ANIMAÇÃO */
 #intro {
   position: fixed;
   z-index: 9999;
@@ -34,6 +33,7 @@
   }
 }
 
+/* BASE */
 html, body {
   height: 100%;
   margin: 0;
@@ -42,17 +42,16 @@ html, body {
   background-attachment: fixed;
   background-size: cover;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
 }
 
-/* Layout */
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -96,15 +95,7 @@ p {
   margin-bottom: 10px;
 }
 
-/* Carousel */
-.carousel-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-}
-
+/* CARROSSEL */
 .story-carousel-wrapper {
   width: 100%;
   max-width: 760px;
@@ -117,7 +108,7 @@ p {
   display: flex;
   gap: 16px;
   scroll-behavior: smooth;
-  overflow-x: scroll;
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -141,11 +132,12 @@ p {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  min-width: 220px;
 }
 
 .card img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   margin-bottom: 12px;
   pointer-events: none;
@@ -161,7 +153,7 @@ p {
   color: #bbb;
 }
 
-/* Navegação */
+/* SETAS */
 .nav {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -188,14 +180,14 @@ p {
 }
 
 .nav.left {
-  left: 0;
+  left: -10px;
 }
 
 .nav.right {
-  right: 0;
+  right: -10px;
 }
 
-/* Paginação */
+/* PAGINAÇÃO */
 .pagination {
   display: flex;
   justify-content: center;
@@ -216,52 +208,11 @@ p {
   background: #fff;
 }
 
-/* ----------------------------- */
-/* Responsivo - Celulares abaixo de 600px */
-@media (max-width: 600px) {
-  .container {
-    padding: 10px;
-  }
-
-  h1 {
-    font-size: 1.2rem;
-  }
-
-  p {
-    font-size: 0.85rem;
-  }
-
-  .whatsapp-btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-
-  .carousel-wrapper {
-    flex-direction: column;
-  }
-
+/* RESPONSIVO */
+@media (max-width: 768px) {
   .card {
-    flex: 0 0 90%; /* Exibe 1 card por vez com margem */
-    padding: 0.8em;
-  }
-
-  .card img {
-    width: 90px;
-    height: 90px;
-  }
-
-  .card h3 {
-    font-size: 0.9rem;
-  }
-
-  .card p {
-    font-size: 0.75rem;
-  }
-
-  .nav {
-    width: 30px;
-    height: 30px;
-    font-size: 1.2rem;
+    flex: 0 0 80%;
+    min-width: 80%;
   }
 
   .nav.left {
@@ -272,9 +223,37 @@ p {
     right: 5px;
   }
 
-  .pagination-dot {
-    width: 8px;
-    height: 8px;
-    margin: 0 3px;
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .whatsapp-btn {
+    font-size: 0.95rem;
+    padding: 10px 18px;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.8rem;
+  }
+
+  .story-carousel {
+    gap: 12px;
+  }
+
+  .pagination {
+    margin-bottom: 20px;
   }
 }
