@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Espera o tempo da animação e remove a tela de introdução
   setTimeout(function () {
-    document.getElementById('intro').style.display = 'none';
+    const intro = document.getElementById('intro');
+    if (intro) intro.style.display = 'none';
   }, 4000); // 4 segundos
 });
 
@@ -40,6 +41,7 @@ const services = [
 
 const carousel = document.querySelector(".story-carousel");
 const pagination = document.querySelector(".pagination");
+
 const cardsPerPage = 3;
 const cardWidth = 240;
 const gap = 16;
@@ -65,13 +67,19 @@ buildCarousel();
 
 const totalPages = Math.ceil(services.length / cardsPerPage);
 
-// Criar bolinhas de paginação
 function buildPagination() {
   pagination.innerHTML = "";
   for(let i = 0; i < totalPages; i++) {
     const dot = document.createElement("div");
     dot.classList.add("pagination-dot");
     if(i === 0) dot.classList.add("active");
+    dot.style.width = "14px";        // bolinha tamanho fixo
+    dot.style.height = "14px";
+    dot.style.borderRadius = "50%";  // bolinha redonda
+    dot.style.backgroundColor = i === 0 ? "#007bff" : "#bbb";
+    dot.style.margin = "0 6px";
+    dot.style.cursor = "pointer";
+
     dot.addEventListener("click", () => {
       goToPage(i);
     });
@@ -91,18 +99,18 @@ function updateActiveDot(activeIndex) {
   const dots = pagination.querySelectorAll(".pagination-dot");
   dots.forEach((dot, i) => {
     dot.classList.toggle("active", i === activeIndex);
+    dot.style.backgroundColor = i === activeIndex ? "#007bff" : "#bbb";
   });
 }
 
-// Atualizar pagina ativa quando o usuário rolar manualmente (arrastar ou scroll)
 carousel.addEventListener("scroll", () => {
-  // Determina a página atual pelo scrollLeft
   const scrollLeft = carousel.scrollLeft;
   const currentPage = Math.round(scrollLeft / scrollStep);
   updateActiveDot(currentPage);
 });
 
-// Botões de navegação
+// Navegação esquerda/direita - cuidado para ter esses elementos no HTML com as classes .nav.left e .nav.right
+
 document.querySelector(".nav.left").addEventListener("click", () => {
   const currentPage = Math.round(carousel.scrollLeft / scrollStep);
   if (currentPage > 0) {
@@ -117,7 +125,8 @@ document.querySelector(".nav.right").addEventListener("click", () => {
   }
 });
 
-// Arrastar com mouse ou touch
+// Drag and swipe
+
 let isDragging = false;
 let startX;
 let scrollStart;
